@@ -77,14 +77,22 @@ elif pagina_selecionada == 'Cadastro Dados Viagem':
         selecao_adiantamento = st.selectbox('Selecione uma opção de adiantamento: ', ['Adiantamento em Cheque', 'Adiantamento Cartão Débito', 'Adiantamento em Folha'])
         enviar_dados_viagem = st.form_submit_button("Enviar")
        
-    if selecao_adiantamento == 'Adiantamento em Folha':
-        sem_adiantamento = (input_valor_frete * 0)
-        st.write(f"Valor do Adiantamento:  R$ {sem_adiantamento:.2f}")
 
-    else:
-        adiantamento = (input_valor_frete * 0.5)
-        st.write(f"Valor do Adiantamento:  R$ {adiantamento:.2f}")
         
+        
+        
+    if enviar_dados_viagem:
+        st.write(f'Número do Contrato: {input_numero_contrato}')
+        st.write(f'Frete: R$ {input_valor_frete:.2f}')
+        st.write(f'Adiantamento Selecionado: {selecao_adiantamento}')
+        
+        if selecao_adiantamento == 'Adiantamento em Folha':
+            sem_adiantamento = (input_valor_frete * 0)
+            st.write(f"Valor do Adiantamento:  R$ {sem_adiantamento:.2f}")
+
+        else:
+            adiantamento = (input_valor_frete * 0.5)
+            st.write(f"Valor do Adiantamento:  R$ {adiantamento:.2f}")
         
     
     
