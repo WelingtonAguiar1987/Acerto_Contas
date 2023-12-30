@@ -7,7 +7,7 @@ import numpy as np
             
 # Distribuição de páginas do site:
 st.sidebar.title('Menu')
-pagina_selecionada = st.sidebar.selectbox('Opções para realizar o acerto:', ['Dados Empresa', 'Dados da Frota', 'Cadastro Motorista', 'Cadastro Dados Viagem', 'Cadastro Abastecimentos', 'Cadastro Despesas', 'Fechamento do Acerto'])
+pagina_selecionada = st.sidebar.selectbox('Opções para realizar o acerto:', ['Dados Empresa', 'Dados da Frota', 'Cadastro Motorista', 'Acordo Trabalhista', 'Cadastro Dados Viagem', 'Cadastro Abastecimentos', 'Cadastro Despesas', 'Fechamento do Acerto'])
 
 # Seleções de páginas do site:
 if pagina_selecionada == 'Dados Empresa':
@@ -53,6 +53,18 @@ elif pagina_selecionada == 'Cadastro Motorista':
         st.write(f"Data do Nascimento do Motorista: {input_data_nascimento_motorista:%d/%m/%y}")
     
     
+  
+elif pagina_selecionada == 'Acordo Trabalhista':
+    st.title('Dados Acordo Trabalhista: ')
+    with st.form(key="Include_Cadastro_Acordo_Trabalhista"):
+        input_comissao_motorista = st.number_input("Digite a comissão combinada: ")
+        enviar_dados_comissao_motorista = st.form_submit_button("Enviar")
+        comissao_percentual_conversao = input_comissao_motorista / 100
+        
+    if enviar_dados_comissao_motorista:
+        st.write(f'A comissão combinada foi de:  {input_comissao_motorista}%')
+  
+  
     
      
 elif pagina_selecionada == 'Cadastro Dados Viagem':
